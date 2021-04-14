@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Sign In{% endblock %}
+{% block content %}
+{{block.super}}
+
+<form action="" method="POST">
+  {% csrf_token %}
+  <table class="ml-3 mt-3">
+    {{form}}
+  </table>
+  <input class="ml-4 mt-4" type="Submit" value="submit">
+</form>
+
+<div class="text-center">
+     <!--For print the message__Use for loop -->
+    {% for message in messages %}
+      <h6 id="message1" style="color: green;">{{message}}</h6>
+    {% endfor %}
+</div>
+
+{% endblock %}

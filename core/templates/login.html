@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Log In{% endblock %}
+{% block content %}
+{{block.super}}
+     <div class="container">
+          <form action="login" class="text-center" method="POST">
+      {% csrf_token %}
+      <input type="text" required class="col-3 rounded mt-5 mb-3" style="height: 35px;" name="username" placeholder="username"><br>
+      <input type="password" required class="col-3 rounded mb-3" style="height: 35px;" name="password" placeholder="Password"><br>
+      <input type="submit" class="mb-5 btn btn-primary">
+      <p>Don't Have An Account? Create New! <a href="{% url 'register' %}">Sign In</a></p>
+          </form>
+     </div>
+     <div class="text-center">
+          <!--For print the message__Use for loop -->
+     {% for message in messages %}
+        <h6 style="color: green; ">{{message}}</h6>
+     {% endfor %}
+     </div>
+
+    {% endblock content %}
